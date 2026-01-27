@@ -2,6 +2,7 @@ This project proposes a systematic, evidence-based approach to detect, analyze, 
 
 
 2. Problem Statement & Motivation
+   
 Gender bias—whether explicit or implicit—can manifest across data collection, feature design, modeling, decision policies, and user interfaces. Consequences include unequal opportunities, pay gaps, lower promotion rates, and biased recommendations that reinforce historical inequities. Organizations often lack standardized diagnostics and ongoing governance to detect and remediate these issues.
 
 ●​ Bias can enter at multiple stages: sampling bias, label bias, measurement bias, and algorithmic bias.
@@ -24,41 +25,63 @@ Gender bias—whether explicit or implicit—can manifest across data collection
 
 
 6. Proposed Solution
+7. 
 We propose an end-to-end platform that ingests heterogeneous datasets; performs data quality, de-identification, and fairness feature engineering; trains and evaluates models with fairness constraints; and delivers interactive reports and alerts. Human-in-the-loop reviews guide mitigation strategies (data augmentation, threshold tuning, model retraining, policy changes), and a monitoring subsystem ensures longitudinal fairness tracking.
 
 4.1 Key Capabilities
 ●​ Bias diagnostics: group-wise metrics (precision/recall, FPR/FNR), calibration by group, disparate impact ratio, equalized odds gap.
+
 ●​ Explainability: SHAP/feature attributions, counterfactual explanations, and decision summaries.
+
 ●​ Mitigation toolkit: reweighting, resampling, constraint-based optimization, post-processing (e.g., threshold adjustments).
+
 ●​ Governance & documentation: model cards, datasheets for datasets, audit trails, and approval workflows.
+
 ●​ Monitoring & alerts: drift detection, fairness metric tracking, and alerting when thresholds exceed guardrails.
 
 5. System Architecture
+6. 
 The architecture comprises data ingestion, preprocessing & privacy protection, bias analysis, model training & evaluation, reporting, and monitoring. It is cloud-ready, modular, and extensible to different domains (HR analytics, lending, marketing, healthcare).
 
 Architecture Components:
+
 ●​ Data Sources: HRIS, ATS, performance reviews, compensation tables, customer interaction logs, surveys.
+
 ●​ Data Ingestion & Validation: ETL/ELT pipelines, schema checks, missing data handling, privacy preserving transformations.
+
 ●​ Feature & Fairness Engineering: protected attribute handling, proxy detection, group-splitting, synthetic data augmentation.
+
 ●​ Bias & Fairness Analysis: metric computation (DI ratio, EO gaps), visualization dashboards.
+
 ●​ Modeling & Training: classification/regression models with fairness constraints; hyperparameter tuning.
+
 ●​ Explainability Layer: SHAP values, counterfactuals, and narrative explanations.
+
 ●​ Governance & Review: approval workflows, audit logging, model cards, datasheets.
+
 ●​ Monitoring & Alerts: periodic evaluation, drift detection, threshold-based alerting.
+
 ●​ Reporting & Interfaces: web dashboards, APIs, and export to stakeholders (PDF/CSV).
 
 6. Tech Stack
+   
 ●​ Data: Azure Data Lake/Blob Storage or AWS S3; SQL (Azure SQL/PostgreSQL); Dataframes (pandas).
+
 ●​ ETL/Orchestration: Azure Data Factory or Apache Airflow; dbt for transformations.
+
 ●​ ML: Python (scikit-learn, PyTorch/LightGBM), fairness libraries (AIF360, Fairlearn).
+
 ●​ Explainability: SHAP, LIME, Counterfactuals (DiCE).
+
 ●​ Serving & Dashboards: FastAPI/Flask APIs; Streamlit/Plotly Dash/Power BI for visualization.
+
 ●​ MLOps: MLflow, Azure ML; CI/CD with GitHub Actions/Azure DevOps; containerization with Docker/Kubernetes.
+
 ●​ Security & Privacy: Differential privacy strategies, role-based access control, encryption at rest/in transit.
 
 
 
-7. Methodology
+8. Methodology
    
 We adopt a phased approach combining data discovery, bias diagnostics, iterative mitigation, and governance. Each phase has clear deliverables and sign-offs.
 
